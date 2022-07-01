@@ -123,16 +123,17 @@
                                             {{-- <td><a href="{{ url('/property/' . $item->id) }}"
                                                     title="View propertie"><button
                                                         class="btn btn-info btn-xs">View</button></a></td> --}}
-                                            <td>
+
+                                            {{-- <td>
                                                 <a href="{{ url('/property/' . $item->id . '/edit') }}"
                                                     title="Edit propertie"><button
                                                         class="btn btn-primary btn-xs">編集</button>
                                                 </a>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <a href="{{ url('/investigation/' . $item->id . '/menu') }}"
                                                     title="Edit questionnaire_score">
-                                                    <button class="btn btn-primary btn-xs">調査</button>
+                                                    <button class="btn btn-primary btn-xs">メニュー</button>
                                                 </a>
                                                 {{-- <a href="{{ url('/investigation/' . $item->id . '/edit') }}"
                                                     title="Edit questionnaire_score">

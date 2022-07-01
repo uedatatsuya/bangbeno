@@ -6,7 +6,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">編集 #{{ $propertie->id }}</div>
                 <div class="panel-body">
-                    <a href="{{ url('property') }}" title="Back"><button class="btn btn-warning btn-xs">戻る</button></a>
+                    <a href="{{ route('investigation.menu', $propertie->id) }}" title="Back">
+                        <button class="btn btn-warning btn-xs">戻る</button></a>
+
                     <br />
                     <br />
 

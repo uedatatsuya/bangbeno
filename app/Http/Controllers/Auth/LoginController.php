@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -40,5 +42,15 @@ class LoginController extends Controller
     public function username()
     {
         return 'name';
+    }
+    // ログイン後のリダイレクト先を記述
+    public function redirectPath()
+    {
+        return "/";
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        return redirect(route('login')); // loginページの場合
     }
 }
