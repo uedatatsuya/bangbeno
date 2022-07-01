@@ -126,7 +126,7 @@
                                         id="cost_reduction_comment_list_1_1">
                                         <option value="">-</option>
                                         @foreach (config('const.cost_reductions')['1']['comments'] as $key => $value)
-                                            <option value="{{ $key }}"
+                                            <option value="{{ $key }}" data-comment="{{ $value['comment'] }}"
                                                 {{ $investigation->cost_reduction_comment_list_1 == $key ? 'selected' : '' }}>
                                                 {{ $value['list'] }}</option>
                                         @endforeach
@@ -136,7 +136,7 @@
                                         id="cost_reduction_comment_list_1_2">
                                         <option value="">-</option>
                                         @foreach (config('const.cost_reductions')['2']['comments'] as $key => $value)
-                                            <option value="{{ $key }}"
+                                            <option value="{{ $key }}" data-comment="{{ $value['comment'] }}"
                                                 {{ $investigation->cost_reduction_comment_list_1 == $key ? 'selected' : '' }}>
                                                 {{ $value['list'] }}</option>
                                         @endforeach
@@ -148,7 +148,7 @@
                                 <label for="cost_reduction_comment_1" class="col-md-4 control-label">コメント: </label>
                                 <div class="col-md-6">
 
-                                    <textarea class="form-control" name="cost_reduction_comment_1" id="cost_reduction_comment_1" rows="3">{{ $investigation->cost_reduction_comment_1 ?? '' }}</textarea>
+                                    <textarea class="form-control" name="cost_reduction_comment_1" id="cost_reduction_comment_1" rows="10">{{ $investigation->cost_reduction_comment_1 ?? '' }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -190,7 +190,7 @@
                                         id="cost_reduction_comment_list_2_1">
                                         <option value="">-</option>
                                         @foreach (config('const.cost_reductions')['1']['comments'] as $key => $value)
-                                            <option value="{{ $key }}"
+                                            <option value="{{ $key }}" data-comment="{{ $value['comment'] }}"
                                                 {{ $investigation->cost_reduction_comment_list_1 == $key ? 'selected' : '' }}>
                                                 {{ $value['list'] }}</option>
                                         @endforeach
@@ -200,7 +200,7 @@
                                         id="cost_reduction_comment_list_2_2">
                                         <option value="">-</option>
                                         @foreach (config('const.cost_reductions')['2']['comments'] as $key => $value)
-                                            <option value="{{ $key }}"
+                                            <option value="{{ $key }}" data-comment="{{ $value['comment'] }}"
                                                 {{ $investigation->cost_reduction_comment_list_2 == $key ? 'selected' : '' }}>
                                                 {{ $value['list'] }}</option>
                                         @endforeach
@@ -215,7 +215,7 @@
                                 <label for="cost_reduction_comment_2" class="col-md-4 control-label">コメント: </label>
                                 <div class="col-md-6">
 
-                                    <textarea class="form-control" name="cost_reduction_comment_2" id="cost_reduction_comment_2" rows="3">{{ $investigation->cost_reduction_comment_2 ?? '' }}</textarea>
+                                    <textarea class="form-control" name="cost_reduction_comment_2" id="cost_reduction_comment_2" rows="10">{{ $investigation->cost_reduction_comment_2 ?? '' }}</textarea>
 
                                 </div>
                             </div>

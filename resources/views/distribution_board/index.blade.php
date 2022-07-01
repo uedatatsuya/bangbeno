@@ -7,8 +7,8 @@
                     <div class="panel-heading">分電盤</div>
                     <div class="panel-body">
 
-                        <a href='{{ route('distribution_board.create') }}' class="btn btn-success btn-sm my-2"
-                            title="Add New distribution_board">
+                        <a href="{{ route('distribution_board.create_investigation', $investigation_id) }}"
+                            class="btn btn-success btn-sm my-2" title="Add New distribution_board">
                             新規追加
                         </a>
 

@@ -22,12 +22,8 @@
                     <form method="POST" action="{{route('distribution_board.store')}}" class="form-horizontal">
                         {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <label for="investigation_id" class="col-md-4 control-label">investigation_id: </label>
-                            <div class="col-md-6">
-                                <input class="form-control" name="investigation_id" type="text" id="investigation_id" value="{{old('investigation_id')}}">
-                            </div>
-                        </div>
+                        <input class="form-control" name="investigation_id" type="hidden" id="investigation_id" value="{{$investigation_id}}">
+
                         <div class="form-group">
                             <label for="category" class="col-md-4 control-label">分電盤種類: </label>
                             <div class="col-md-6">

@@ -47,6 +47,7 @@ Route::resource("investigation", "InvestigationsController");
 //=======================================================================
 // 分電盤
 //=======================================================================
+Route::get('/distribution_board/{id}/create_investigation', 'DistributionBoardsController@create_investigation')->name('distribution_board.create_investigation');
 // resourse
 Route::get('/distribution_board/{id}/index_investigation', 'DistributionBoardsController@index_investigation')->name('distribution_board.index_investigation');
 // edit

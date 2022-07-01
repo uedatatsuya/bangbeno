@@ -52,11 +52,13 @@ class DistributionBoardsController extends Controller
         $perPage = 25;
 
         $investigation = Investigation::where('property_id', $id ?? '')->first();
+        // get investigation_id from investigation
+        $investigation_id = $investigation->id;
         $distribution_board = DB::table("distribution_boards")
             ->where("investigation_id", $investigation->id ?? '')
             ->select("*")->addSelect("distribution_boards.id")->paginate($perPage);
 
-        return view("distribution_board.index", compact("distribution_board", "id"));
+        return view("distribution_board.index", compact("distribution_board", "id", "investigation_id"));
     }
 
     public function edit_investigation($id)
@@ -82,6 +84,12 @@ class DistributionBoardsController extends Controller
     public function create()
     {
         return view("distribution_board.create");
+    }
+
+    public function create_investigation($id)
+    {
+        $investigation_id = $id;
+        return view("distribution_board.create", compact("investigation_id"));
     }
 
     /**
@@ -152,7 +160,9 @@ class DistributionBoardsController extends Controller
      */
     public function edit($id)
     {
+        // 分電盤情報を取得
         $distribution_board = DistributionBoard::findOrFail($id);
+
 
         return view("distribution_board.edit", compact("distribution_board"));
     }
