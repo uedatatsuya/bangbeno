@@ -147,8 +147,12 @@
                 <a class="list-group-item list-group-item-action" href="./property">物件</a>
                 <a class="list-group-item list-group-item-action" href="./sales_office">営業所マスタ</a>
                 <a class="list-group-item list-group-item-action" href="./partner_company">協力会社マスタ</a>
+                <a class="list-group-item list-group-item-action" href="{{ route('register.index_cooperation_company') }}">協力会社ユーザーマスタ</a>
                 <a class="list-group-item list-group-item-action" href="./department/">部署マスタ</a>
+
+                @if ($user->category == 1)
                 <a class="list-group-item list-group-item-action" href="{{ route('register.index') }}">ユーザーマスタ</a>
+                @endif
 
                 <!-- <a class="list-group-item list-group-item-action" href="./investigation">Investigations</a>
                 <a class="list-group-item list-group-item-action" href="./distribution_board">DistributionBoards</a>

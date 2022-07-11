@@ -6,7 +6,7 @@
     <div class="list-group  container mb-1">
 
         <span>
-            ・1.基本情報
+            1.基本情報
         </span>
 
 
@@ -19,7 +19,7 @@
     <div class="list-group  container mb-3">
 
         <span>
-            ・2.調査情報
+            2.調査情報
         </span>
 
         <a class="list-group-item list-group-item-action" href="{{ url('/investigation/' . $id . '/edit') }}" title="Edit questionnaire_score">
@@ -29,6 +29,7 @@
         <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
             分電盤基本設定
         </a>
+
 
         <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
             調査内容（写真DL）<br>（未着手）
@@ -42,29 +43,33 @@
             工事見積依頼登録<br>（未着手）
         </a>
 
-        <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
-            工事見積登録（工事店）<br>（未着手）
-        </a>
 
         <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
             盤改修提案書DL<br>（未着手）
         </a>
-
-        <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
-            工事見積登録（エスコ）<br>（未着手）
-        </a>
-
 
     </div>
 
     <div class="list-group  container mb-3">
 
         <span>
-            ・3.工事情報
+            3.工事情報
         </span>
 
         <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
+            工事見積登録（工事店）<br>（未着手）
+        </a>
+
+        <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
+            工事見積登録（エスコ）<br>（未着手）
+        </a>
+
+        <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
             工事スケジュール<br>（未着手）
+        </a>
+
+        <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">
+            工事内容登録<br>（未着手）
         </a>
 
         <a class="list-group-item list-group-item-action" href="{{ route('distribution_board.index_investigation',$id) }}">

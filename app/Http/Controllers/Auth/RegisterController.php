@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 
+
 class RegisterController extends Controller
 {
     /*
@@ -47,13 +48,49 @@ class RegisterController extends Controller
 
     public function index(Request $request)
     {
+        // categroy 1:エスコ2:協力会社
+
         $keyword = $request->get("search");
         $perPage = 25;
-        if (!empty($keyword)) {
+
+        $user = auth()->user();
+        $category = $user->category;
+        if ($category == 1) {
+            $user = User::where('category', 1)->paginate($perPage);
+        } else if ($category == 2) {
+            $user = User::where('category', 2)->paginate($perPage);
         } else {
+
             $user = User::paginate($perPage);
         }
-        return view("auth.index", compact("user"));
+
+        // if (!empty($keyword)) {
+        // } else {
+        //     $user = User::paginate($perPage);
+        // }
+
+        return view("auth.index", compact("user", "category"));
+    }
+
+    public function index_cooperation_company(Request $request)
+    {
+
+        $myself = auth()->user();
+        $partner_company_id = $myself->partner_company_id;
+
+        // 協力会社のユーザーを取得
+        $keyword = $request->get("search");
+        $perPage = 25;
+
+        $user = User::where('category', 2)
+            ->where('partner_company_id', $partner_company_id)
+            ->paginate($perPage);
+
+        // if (!empty($keyword)) {
+        // } else {
+        //     $user = User::paginate($perPage);
+        // }
+        return view("auth.index_cooperation_company", compact("user"));
     }
 
     /**
@@ -68,6 +105,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
         ]);
     }
 
@@ -110,18 +148,23 @@ class RegisterController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'last_name' => ['required', 'string', 'max:255'],
+            // 'email' => ['required', 'string', 'email', 'max:255'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'last_name' => ['required', 'string', 'max:255'],
 
-            'user_id' => ['required', 'string', 'max:10', Rule::unique('users')->ignore($id)],
+            // 'user_id' => ['required', 'string', 'max:10', Rule::unique('users')->ignore($id)],
+            // 'name' => ['required', 'string', 'max:10', Rule::unique('users')->ignore($id)],
         ]);
-        $requestData = $request->all();
-        $requestWageData["wage"] = $requestData["wage"];
-        unset($requestData["wage"]);
-        $user = User::findOrFail($id);
-        $user->update($requestData);
 
+        $requestData = $request->all();
+
+        $user = User::findOrFail($id);
+
+        // $user->name = $request->get('name');
+        // $user->password = $request->get('password');
+        // $user->save;
+
+        $user->update($requestData);
 
         return redirect($this->redirectPath())->with("flash_message", "データが更新されました。");
     }
@@ -131,7 +174,6 @@ class RegisterController extends Controller
         User::destroy($id);
         return redirect($this->redirectPath())->with("flash_message", "データが削除されました。");
     }
-
 
 
     // ログイン後のリダイレクト先を記述

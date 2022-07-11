@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    // return login page
-    // return view('auth.login');
+
+    $user = auth()->user();
+    return view('welcome', compact('user'));
 });
 
 Auth::routes();
@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     //=======================================================================
 
     //=======================================================================
-    Route::resource("improvement_rank_internal1", "ImprovementRankInternal1PicturesController");
+    // Route::resource("improvement_rank_internal1", "ImprovementRankInternal1PicturesController");
     // Route::resource("improvement_rank_internal1_picture", "ImprovementRankInternal1PicturesController");
     //=======================================================================
 
@@ -97,4 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/auth/{id}/edit', 'Auth\RegisterController@edit')->name('register.edit');
     Route::put('/auth/{id}/destroy', 'Auth\RegisterController@destroy')->name('register.destroy');
     Route::put('/auth/{id}/update', 'Auth\RegisterController@update')->name('register.update');
+
+    // 協力会社
+    Route::get('/auth/index_cooperation_company', 'Auth\RegisterController@index_cooperation_company')->name('register.index_cooperation_company');
 });
